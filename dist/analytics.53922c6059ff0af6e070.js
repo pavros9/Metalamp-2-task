@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunk=self.webpackChunk||[]).push([[142],{696:(e,s,t)=>{var c=t(638);window.analytics=function(){let e=0;const s=()=>e++;return c(document).on("click",s),{destroy(){c(document).off("click",s),isDestroyed=!0},getClicks:()=>isDestroyed?`Analytics is destroyed. Total clicks = ${e}`:e}}()}},e=>{e.O(0,[638],(()=>{return s=696,e(e.s=s);var s}));e.O()}]);

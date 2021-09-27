@@ -1,0 +1,9 @@
+$border: 1px solid red;
+
+.card {
+  padding: 1rem;
+  border: $border;
+  h2 {
+    color: beige;
+  }
+}

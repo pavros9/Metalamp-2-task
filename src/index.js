@@ -5,6 +5,7 @@ import xml from "./assets/data.xml";
 import csv from "./assets/data.csv";
 import Logo from "./assets/logo.png";
 import "./styles/style.css";
+import "./styles/scss.scss";
 
 const post = new Post("Webpack Post Title", Logo);
 
