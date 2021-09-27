@@ -8,7 +8,7 @@
     "dev": "webpack --mode development",
     "build": "webpack --mode production",
     "watch": "webpack --mode development --watch",
-    "start": "webpack serve --mode development --open"
+    "start": "webpack-cli serve --mode development"
   },
   "repository": {
     "type": "git",
@@ -28,6 +28,7 @@
   },
   "devDependencies": {
     "clean-webpack-plugin": "^4.0.0",
+    "copy-webpack-plugin": "^9.0.1",
     "css-loader": "^6.3.0",
     "csv-loader": "^3.0.3",
     "file-loader": "^6.2.0",
