@@ -26,10 +26,26 @@ const optimization = () => {
 
 const filename = (ext) => (isDev ? `[name].${ext}` : `[name].[hash].${ext}`);
 
+const cssLoaders = (extra) => {
+  const loaders = [
+    {
+      loader: MiniCssExtractPlugin.loader,
+      options: {},
+    },
+    "css-loader",
+  ];
+
+  if (extra) {
+    loaders.push(extra);
+  }
+
+  return loaders;
+};
+
 module.exports = {
   context: path.resolve(__dirname, "src"),
   entry: {
-    main: "./index.js",
+    main: ["@babel/polyfill", "./index.js"],
     analytics: "./analytics.js",
   },
   output: {
@@ -69,24 +85,11 @@ module.exports = {
     rules: [
       {
         test: /\.css$/,
-        use: [
-          {
-            loader: MiniCssExtractPlugin.loader,
-            options: {},
-          },
-          "css-loader",
-        ],
+        use: cssLoaders(),
       },
       {
         test: /\.scss$/,
-        use: [
-          {
-            loader: MiniCssExtractPlugin.loader,
-            options: {},
-          },
-          "css-loader",
-          "sass-loader",
-        ],
+        use: cssLoaders("sass-loader"),
       },
       {
         test: /\.(png|jpg|svg|gif)$/,
@@ -103,6 +106,16 @@ module.exports = {
       {
         test: /\.csv$/,
         use: ["csv-loader"],
+      },
+      {
+        test: /\.m?js$/,
+        exclude: /(node_modules|bower_components)/,
+        use: {
+          loader: "babel-loader",
+          options: {
+            presets: ["@babel/preset-env"],
+          },
+        },
       },
     ],
   },

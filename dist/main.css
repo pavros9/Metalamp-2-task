@@ -1,0 +1,40 @@
+/*!**********************************************************************!*\
+  !*** css ../node_modules/css-loader/dist/cjs.js!./styles/roboto.css ***!
+  \**********************************************************************/
+@font-face {
+  font-family: "Roboto";
+  src: url(75371f53f06181df75f1.ttf) format("truetype");
+}
+
+/*!*********************************************************************!*\
+  !*** css ../node_modules/css-loader/dist/cjs.js!./styles/style.css ***!
+  \*********************************************************************/
+body {
+  font-family: "Roboto", sans-serif;
+}
+.container {
+  padding-top: 2rem;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+h1 {
+  text-align: center;
+  color: red;
+}
+.logo {
+  background-image: url(547cd188fac18615d5f1.png);
+  background-size: cover;
+  height: 400px;
+  width: 600px;
+  margin: 0 auto;
+}
+
+/*!*************************************************************************************************************!*\
+  !*** css ../node_modules/css-loader/dist/cjs.js!../node_modules/sass-loader/dist/cjs.js!./styles/scss.scss ***!
+  \*************************************************************************************************************/
+.card {
+  padding: 1rem;
+  border: 1px solid green; }
+  .card h2 {
+    color: green; }
+
