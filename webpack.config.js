@@ -57,6 +57,8 @@ module.exports = {
     extensions: [".js", ".json"],
   },
   optimization: optimization(),
+  devtool: isDev ? "source-map" : "",
+
   devServer: {
     open: true,
     port: 4200,
