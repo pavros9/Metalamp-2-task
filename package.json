@@ -6,10 +6,10 @@
   "browserslist": "> 0.25%, not dead",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "cross-env NODE_ENV=development webpack --mode development",
-    "build": "cross-env NODE_ENV=production webpack --mode production",
-    "watch": "cross-env NODE_ENV=development webpack --mode development --watch",
-    "start": "cross-env NODE_ENV=development webpack serve --open"
+    "dev": " webpack --mode development --config ./conf/webpack.development.js",
+    "build": " webpack --mode production --config ./conf/webpack.production.js",
+    "watch": " webpack --mode development --watch",
+    "start": " webpack serve --open --config ./conf/webpack.development.js --mode development"
   },
   "repository": {
     "type": "git",
@@ -50,6 +50,7 @@
     "style-loader": "^3.3.0",
     "terser-webpack-plugin": "^5.2.4",
     "webpack-dev-server": "^4.0.0-rc.1",
+    "webpack-merge": "^5.8.0",
     "xml-loader": "^1.2.1"
   }
 }

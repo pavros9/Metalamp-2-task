@@ -44,17 +44,16 @@ const cssLoaders = (extra) => {
 };
 
 module.exports = {
-  context: path.resolve(__dirname, "src"),
   entry: {
-    main: ["./index.js", "./common-blocks/new/new.js"],
+    main: ["./src/entry.js", "./src/common-blocks/new/new.js"],
     hot: "webpack/hot/dev-server.js",
     // Dev server client for web socket transport, hot and live reload logic
     client: "webpack-dev-server/client/index.js?hot=true&live-reload=true",
   },
   output: {
     filename: filename("js"),
-    path: path.resolve(__dirname, "dist"),
-    publicPath: "",
+    path: path.resolve(__dirname, "..", "dist"),
+    // publicPath: "./",
   },
   resolve: {
     extensions: [".js", ".json"],
@@ -62,22 +61,25 @@ module.exports = {
   optimization: optimization(),
   devtool: isDev ? "source-map" : false,
   devServer: {
-    port: 4200,
+    //   port: 4200,
     hot: false,
     client: false,
   },
   plugins: [
     new HTMLWebpackPlugin({
-      template: "pages/first-page.pug",
-      filename: "index.pug".replace(".pug", ".html"),
+      template: "./src/pages/first-page.pug",
+      filename: "./index.pug".replace(".pug", ".html"),
+      files: {
+        css: path.resolve(__dirname, "..", "dist"),
+      },
     }),
 
     new CleanWebpackPlugin(),
     new CopyWebpackPlugin({
       patterns: [
         {
-          from: path.resolve(__dirname, "src/assets"),
-          to: path.resolve(__dirname, "dist/assets"),
+          from: path.resolve(__dirname, "..", "src/assets"),
+          to: path.resolve(__dirname, "..", "dist/assets"),
         },
       ],
     }),
@@ -89,7 +91,12 @@ module.exports = {
     rules: [
       {
         test: /\.css$/,
-        use: cssLoaders(),
+        use: cssLoaders({
+          loader: "resolve-url-loader",
+          options: {
+            root: path.join(__dirname, "src"),
+          },
+        }),
       },
       {
         test: /\.scss$/,
