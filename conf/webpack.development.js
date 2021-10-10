@@ -1,13 +1,34 @@
-const path = require("path");
 const webpack = require("webpack");
+const path = require("path");
 const HTMLWebpackPlugin = require("html-webpack-plugin");
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 const CopyWebpackPlugin = require("copy-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const BaseConfig = require("./webpack.base");
 const { merge } = require("webpack-merge");
+const fs = require("fs");
+const pages = [];
+
+fs.readdirSync(path.resolve(__dirname, "..", "src", "pages"))
+  .filter((file) => {
+    return file.indexOf("base") !== 0;
+  })
+  .forEach((file) => {
+    pages.push(file.split("/", 2));
+  });
 
 const filename = (ext) => `[name].${ext}`;
+const htmlPlugins = pages.map(
+  (fileName) =>
+    new HTMLWebpackPlugin({
+      filename: `pages/${fileName}/${fileName}.html`,
+      template: `./src/pages/${fileName}/${fileName}.pug`,
+      alwaysWriteToDisk: true,
+      inject: "body",
+      hash: true,
+      minify: false,
+    })
+);
 
 const cssLoaders = (extra) => {
   const loaders = [
@@ -41,15 +62,18 @@ module.exports = merge(BaseConfig, {
   devServer: {
     hot: false,
     client: false,
+    open: {
+      target: pages.map((fileName) => `pages/${fileName}/${fileName}.html`),
+    },
   },
   plugins: [
-    new HTMLWebpackPlugin({
-      template: "./src/pages/first-page.pug",
-      filename: "./index.pug".replace(".pug", ".html"),
-      files: {
-        css: path.resolve(__dirname, "..", "dist"),
-      },
-    }),
+    // new HTMLWebpackPlugin({
+    //   template: "./src/pages/first-page/first-page.pug",
+    //   filename: "./pages/index.pug".replace(".pug", ".html"),
+    //   files: {
+    //     css: path.resolve(__dirname, "..", "dist"),
+    //   },
+    // }),
 
     new CleanWebpackPlugin(),
     new CopyWebpackPlugin({
@@ -63,7 +87,7 @@ module.exports = merge(BaseConfig, {
     new MiniCssExtractPlugin({
       filename: filename("css"),
     }),
-  ],
+  ].concat(htmlPlugins),
   module: {
     rules: [
       {
@@ -108,9 +132,11 @@ module.exports = merge(BaseConfig, {
       },
       {
         test: /\.pug$/,
-        use: ["pug-loader"],
+        use: ["pug-loader?pretty=true"],
       },
     ],
   },
 });
+
 console.log(module.exports);
+console.log(pages.map((fileName) => `pages/${fileName}`));

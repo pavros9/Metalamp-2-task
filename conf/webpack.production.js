@@ -1,6 +1,5 @@
-console.log("Re");
-const path = require("path");
 const webpack = require("webpack");
+const path = require("path");
 const HTMLWebpackPlugin = require("html-webpack-plugin");
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 const CopyWebpackPlugin = require("copy-webpack-plugin");
@@ -9,6 +8,27 @@ const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
 const TerserWebpackPlugin = require("terser-webpack-plugin");
 const BaseConfig = require("./webpack.base");
 const { merge } = require("webpack-merge");
+const fs = require("fs");
+const pages = [];
+
+fs.readdirSync(path.resolve(__dirname, "..", "src", "pages"))
+  .filter((file) => {
+    return file.indexOf("base") !== 0;
+  })
+  .forEach((file) => {
+    pages.push(file.split("/", 2));
+  });
+
+const htmlPlugins = pages.map(
+  (fileName) =>
+    new HTMLWebpackPlugin({
+      filename: `pages/${fileName}/${fileName}.html`,
+      template: `./src/pages/${fileName}/${fileName}.pug`,
+      alwaysWriteToDisk: true,
+      inject: "body",
+      hash: true,
+    })
+);
 
 const filename = (ext) => `[name].[hash].${ext}`;
 
@@ -43,14 +63,6 @@ module.exports = merge(BaseConfig, {
   },
   devtool: false,
   plugins: [
-    new HTMLWebpackPlugin({
-      template: "./src/pages/first-page.pug",
-      filename: "./index.pug".replace(".pug", ".html"),
-      files: {
-        css: path.resolve(__dirname, "..", "dist"),
-      },
-    }),
-
     new CleanWebpackPlugin(),
     new CopyWebpackPlugin({
       patterns: [
@@ -63,7 +75,7 @@ module.exports = merge(BaseConfig, {
     new MiniCssExtractPlugin({
       filename: filename("css"),
     }),
-  ],
+  ].concat(htmlPlugins),
   module: {
     rules: [
       {
