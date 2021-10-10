@@ -109,7 +109,7 @@ module.exports = merge(BaseConfig, {
         type: "asset/resource",
       },
       {
-        test: /\.(ttf|woff|woff2|eot)$/,
+        test: /\.(ttf|woff|woff2|eot|font.*\.svg$)$/,
         type: "asset/resource",
       },
       {
