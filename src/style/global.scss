@@ -1,15 +1,10 @@
 @import "../assets/fonts/fonts.scss";
 
-$border: 1px solid green;
+html {
+  font-size: 14px;
+}
 
 body {
   font-family: "Montserrat", sans-serif;
   font-weight: 400;
-}
-.card {
-  padding: 2rem;
-  border: $border;
-}
-h2 {
-  color: rgb(128, 0, 32);
 }
