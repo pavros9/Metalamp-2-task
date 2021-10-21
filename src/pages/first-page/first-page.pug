@@ -1,10 +1,18 @@
+extends ../base/base
+
 include ../../common-blocks/color/color
 include ../../common-blocks/type/type
 
-- data = htmlWebpackPlugin.options.getData()
-for item in data.colors
-  +color(item.color, item.term, item.definition)
+block title
+  | Ui Kit
 
-for item in data.text
-  +type(item.tag, item.term, item.definition)
+block variables
+  - data = htmlWebpackPlugin.options.getData()
+
+block content
+  for item in data.colors
+    +color(item.color, item.term, item.definition)
+
+  for item in data.text
+    +type(item.tag, item.term, item.definition)
     
