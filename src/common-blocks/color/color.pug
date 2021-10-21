@@ -1,6 +1,8 @@
 include ./__area/color__area
+include ./__description/color__description
 
-mixin color(options)
-    .color
-      +color__area
+mixin color(modifier, term, definition)
+  .color
+    +color__area(modifier)
+    +color__description(term, definition)
 

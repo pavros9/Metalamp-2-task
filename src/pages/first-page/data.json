@@ -1,0 +1,49 @@
+{
+    "colors": [
+        {
+            "color": "shaded-first",
+            "term": "Dark Shade 100%",
+            "definition": "#1F2041d"
+        },
+        {
+            "color": "shaded-second",
+            "term": "Dark Shade 75%",
+            "definition": "#1F2041d"
+        },
+        {
+            "color": "shaded-third",
+            "term": "Dark Shade 50%",
+            "definition": "#1F2041d"
+        },
+        {
+            "color": "shaded-forth",
+            "term": "Dark Shade 25%",
+            "definition": "#1F2041d"
+        },
+        {
+            "color": "shaded-fifth",
+            "term": "Dark Shade 5%",
+            "definition": "#1F2041d"
+        },
+        {
+            "color": "purple",
+            "term": "Purple",
+            "definition": "#bc9cff"
+        },
+        {
+            "color": "green",
+            "term": "Green",
+            "definition": "#6fcf97"
+        }
+        
+    ],
+    "text": [
+        {
+            "h1": "This one is the sub-section or widget title",
+            "h2": "Next one is the item title inside widgets",
+            "h3": "This is a label or CTA text",
+            "body": "This is the body text which is used for most of the design, like paragraphs, lists, etc."
+        }
+
+    ]  
+}

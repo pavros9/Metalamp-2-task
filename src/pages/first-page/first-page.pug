@@ -1,6 +1,5 @@
 include ../../common-blocks/color/color
-include ../../common-blocks/color/__area/color__area
 
-+color
-    +color__area
-
+- data = htmlWebpackPlugin.options.getData()
+for item in data.colors
+  +color(item.color, item.term, item.definition)
