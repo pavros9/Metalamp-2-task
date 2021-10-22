@@ -76,14 +76,6 @@ module.exports = merge(BaseConfig, {
     },
   },
   plugins: [
-    // new HTMLWebpackPlugin({
-    //   template: "./src/pages/first-page/first-page.pug",
-    //   filename: "./pages/index.pug".replace(".pug", ".html"),
-    //   files: {
-    //     css: path.resolve(__dirname, "..", "dist"),
-    //   },
-    // }),
-
     new CleanWebpackPlugin(),
     new CopyWebpackPlugin({
       patterns: [
@@ -103,9 +95,9 @@ module.exports = merge(BaseConfig, {
         test: /\.css$/,
         use: cssLoaders({
           loader: "resolve-url-loader",
-          options: {
-            root: path.join(__dirname, "src"),
-          },
+          // options: {
+          //   root: path.join(__dirname, "src"),
+          // },
         }),
       },
       {
@@ -146,6 +138,3 @@ module.exports = merge(BaseConfig, {
     ],
   },
 });
-
-console.log(module.exports);
-console.log(pages.map((fileName) => `pages/${fileName}`));

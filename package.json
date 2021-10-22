@@ -44,6 +44,8 @@
     "html-webpack-plugin": "^5.3.2",
     "mini-css-extract-plugin": "^2.3.0",
     "node-sass": "^6.0.1",
+    "postcss": "^8.3.11",
+    "postcss-loader": "^6.2.0",
     "pug": "^2.0.4",
     "pug-loader": "^2.4.0",
     "resolve-url-loader": "^4.0.0",

@@ -2,6 +2,10 @@ extends ../base/base
 
 include ../../common-blocks/color/color
 include ../../common-blocks/type/type
+include ../../common-blocks/layout/layout
+include ../../common-blocks/color-type/color-type
+include ../../common-blocks/colors/colors
+include ../../common-blocks/types/types
 
 block title
   | Ui Kit
@@ -10,9 +14,12 @@ block variables
   - data = htmlWebpackPlugin.options.getData()
 
 block content
-  for item in data.colors
-    +color(item.color, item.term, item.definition)
-
-  for item in data.text
-    +type(item.tag, item.term, item.definition)
+  +layout()
+    +color-type
+      +colors
+        for item in data.colors
+          +color(item.color, item.term, item.definition)
+      +types
+        for item in data.text
+          +type(item.tag, item.term, item.definition)
     
