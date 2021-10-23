@@ -1,3 +1,44 @@
+@import "Style/constants";
+
 .color {
   display: flex;
+  &__area {
+    flex: 0 0 5rem;
+    height: 5rem;
+    border-radius: 0.43rem;
+    &_green {
+      background: $color-green;
+    }
+    &_purple {
+      background: $color-purple;
+    }
+    &_shaded-first {
+      background: $color-shade-first;
+    }
+    &_shaded-second {
+      background: $color-shade-second;
+    }
+    &_shaded-third {
+      background: $color-shade-third;
+    }
+    &_shaded-forth {
+      background: $color-shade-forth;
+    }
+    &_shaded-fifth {
+      background: $color-shade-fifth;
+    }
+  }
+  &__description {
+    font-size: 1.36rem;
+    padding-left: 2.86rem;
+    text-align: left;
+    margin: auto 0;
+    dt {
+      font-weight: bold;
+    }
+    dd {
+      margin-left: 0;
+      text-transform: uppercase;
+    }
+  }
 }

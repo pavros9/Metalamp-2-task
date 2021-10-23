@@ -1,5 +1,22 @@
+@import "Style/constants";
 .type {
   display: flex;
   margin-top: 0;
   margin-bottom: 3.57rem;
+  &__term {
+    color: $color-shade-forth;
+    flex: 0 0 2.64rem;
+    text-align: right;
+    text-transform: capitalize;
+    h1,
+    h2,
+    h3 {
+      font-weight: 400;
+    }
+  }
+  &__description {
+    flex: 0 1 28.5rem;
+    margin: 0;
+    padding-left: 2.14rem;
+  }
 }

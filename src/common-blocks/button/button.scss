@@ -1,7 +1,29 @@
+@import "Style/constants";
+
 .button {
   height: 3.14rem;
   border-radius: 1.57rem;
   font-size: 0.86rem;
   text-transform: uppercase;
   font-weight: bold;
+  &_small {
+    width: 7.07rem;
+  }
+  &_big {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 22.86rem;
+  }
+  &_transparent {
+    background-image: linear-gradient(white, white), radial-gradient(circle at top left, #bc9cff 0%, #8ba4f9 100%);
+    border: double 2px transparent;
+    background-origin: border-box;
+    background-clip: content-box, border-box;
+    padding: 0;
+    color: $color-purple;
+    &:hover {
+      background-image: linear-gradient(white, white), radial-gradient(circle at top left, rgba(188, 156, 255, 0.5) 0%, rgba(139, 164, 249, 0.5) 100%);
+    }
+  }
 }

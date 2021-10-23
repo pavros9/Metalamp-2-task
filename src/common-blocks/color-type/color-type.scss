@@ -5,4 +5,10 @@
   padding-left: 8.99%;
   padding-right: 8.99%;
   justify-content: space-between;
+  &__types {
+    flex: 0 0 31.14rem;
+  }
+  &__colors {
+    flex: 0 0 20.09rem;
+  }
 }

@@ -1,7 +1,6 @@
-include ./__term/type__term
-include ./__description/type__description
-
 mixin type(tag, term, definition)
   dl.type
-   +type__term(tag, term)
-   +type__description(tag, definition)
+   dt.type__term
+    #{tag}=term
+   dd.type__description
+    #{tag}=definition
