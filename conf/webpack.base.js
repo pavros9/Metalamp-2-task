@@ -9,5 +9,8 @@ module.exports = {
   },
   resolve: {
     extensions: [".js", ".json"],
+    alias: {
+      Style: path.resolve(__dirname, "../src/style/"),
+    },
   },
 };

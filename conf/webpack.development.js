@@ -133,7 +133,12 @@ module.exports = merge(BaseConfig, {
       },
       {
         test: /\.pug$/,
-        use: ["pug-loader?pretty=true"],
+        use: {
+          loader: "pug-loader?pretty=true",
+          // options: {
+          //   root: path.resolve(__dirname, "../src/common-blocks"),
+          // },
+        },
       },
     ],
   },
