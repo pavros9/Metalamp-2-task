@@ -72,7 +72,7 @@ module.exports = merge(BaseConfig, {
     client: false,
     open: {
       // target: pages.map((fileName) => `pages/${fileName}/${fileName}.html`),
-      target: "pages/first-page/first-page.html",
+      target: "pages/second-page/second-page.html",
     },
   },
   plugins: [

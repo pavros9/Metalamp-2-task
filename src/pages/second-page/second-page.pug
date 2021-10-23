@@ -1,3 +1,14 @@
-include ../../common-blocks/color/color
+extends ../base/base
 
-+color
+include ../../common-blocks/layout/layout
+include ../../common-blocks/button/button
+
+block title
+  | Forms Elements
+
+block variables
+
+block content
+  +button
+  +button(['button_small', 'button_transparent'])
+  +button(['button_big', 'button_transparent'])
