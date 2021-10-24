@@ -1,0 +1,9 @@
+mixin input(options)
+  if !options
+    - options = {}
+  if (options.type ==='text' || options.type ==='email')
+    input.input.input_default(
+      type = options.type, 
+      placeholder = options.placeholder,
+      name = options.name
+      )

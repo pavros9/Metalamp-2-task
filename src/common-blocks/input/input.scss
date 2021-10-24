@@ -1,0 +1,37 @@
+@import "Style/constants";
+
+.input {
+  border-radius: 0.29rem;
+  border: 0.07rem solid $color-shade-forth;
+  padding: 0 1.07rem;
+  color: $color-shade-second;
+  transition: border-color 0.4s;
+  outline: none;
+  &:focus,
+  &:hover {
+    border-color: $color-shade-second;
+  }
+  &_default {
+    height: 3.14rem;
+    width: 22.86rem;
+  }
+}
+input::-webkit-input-placeholder {
+  color: $color-shade-forth;
+  transition: color 0.4s;
+}
+input:-moz-placeholder {
+  color: $color-shade-forth;
+}
+input:focus::-webkit-input-placeholder {
+  color: $color-shade-second;
+}
+input:focus-moz-placeholder {
+  color: $color-shade-second;
+}
+input:hover::-webkit-input-placeholder {
+  color: $color-shade-second;
+}
+input:hover-moz-placeholder {
+  color: $color-shade-second;
+}

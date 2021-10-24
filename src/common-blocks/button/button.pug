@@ -1,5 +1,6 @@
-mixin button(modifier)
-  if modifier
-    button.button(class=modifier) Button
-  else
-    button.button Button
+mixin button( options)
+  if !options
+    - options = {}
+  button.button(
+    class = options.class 
+  ) #{options.text}
