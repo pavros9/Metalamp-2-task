@@ -1,6 +1,7 @@
 extends ../base/base
 
 include ../../common-blocks/layout/layout
+include ../../common-blocks/form-items/form-items
 include ../../common-blocks/form-item/form-item
 include ../../common-blocks/button/button
 include ../../common-blocks/input/input
@@ -12,13 +13,13 @@ block variables
 
 block content
   +layout
-    +form-item({title: "Text field", modifier: "Default"})
-      +input({type: 'email', placeholder: 'Email'})
-    +form-item({title: "Text field", modifier: "Hover/focus"})
-      +input({type: 'text', placeholder: 'This is pretty awesome'})
-
-    +button({text: 'Стандарт', class: 'ke'})
-    +button({text: 'Click me', class: ['button_small', 'button_transparent']})
-    +button({text: 'Войти', class: ['button_small', 'button_transparent']})
-    +button({text: 'Войти', class: ['button_small', 'button_solid']})
-    +button({text: 'Подключить', class: ['button_big', 'button_solid']})
+    +form-items
+      +form-item({title: "Text field", modifier: "Default"})
+        +input({type: 'email', placeholder: 'Email'})
+      +form-item({title: "Text field", modifier: "Hover / focus"})
+        +input({type: 'text', placeholder: 'This is pretty awesome'})
+      +button({text: 'Стандарт', class: 'ke'})
+      +button({text: 'Click me', class: ['button_small', 'button_transparent']})
+      +button({text: 'Войти', class: ['button_small', 'button_transparent']})
+      +button({text: 'Войти', class: ['button_small', 'button_solid']})
+      +button({text: 'Подключить', class: ['button_big', 'button_solid']})

@@ -1,10 +1,10 @@
 .form-item {
   max-width: 22.86rem;
+  display: block;
   &__top {
     display: flex;
     text-transform: uppercase;
     justify-content: space-between;
-    max-width: 22.86rem;
     margin-bottom: 0.36rem;
   }
   &__modifier {
