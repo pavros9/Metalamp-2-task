@@ -1,0 +1,9 @@
+mixin form-item(options)
+  if !options
+    - options = {}
+  label.form-item.form-items__item
+    .form-item__top 
+      h3.form-item__title #{options.title}
+      if options.modifier
+        span.form-item__modifier #{options.modifier}
+    block
