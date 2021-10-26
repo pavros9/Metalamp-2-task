@@ -17,9 +17,6 @@
     appearance: none;
     -webkit-tap-highlight-color: transparent;
     cursor: pointer;
-    &:focus {
-      outline: 0;
-    }
     $width: 2.86rem;
     order: -1;
     height: 1.43rem;
@@ -29,6 +26,9 @@
     align-items: center;
     border: 1px solid $color-shade-forth;
     padding: 0 0.29rem;
+    &:focus {
+      outline: 0;
+    }
     &:after {
       content: "";
       display: inline-block;
@@ -41,7 +41,7 @@
     }
 
     &:checked {
-      border-color: $color-gradient;
+      border-color: $color-purple;
       &:after {
         transform: translatex(($width * 0.44));
         background: $color-gradient;
