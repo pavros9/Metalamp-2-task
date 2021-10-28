@@ -11,6 +11,7 @@ module.exports = {
     extensions: [".js", ".json"],
     alias: {
       Style: path.resolve(__dirname, "../src/style/"),
+      Assets: path.resolve(__dirname, "../src/assets/"),
     },
   },
 };

@@ -1,5 +1,66 @@
-.select:after {
-  content: "\E5CF";
+@import "Style/constants";
+
+.wrapper-select {
+  &_default {
+    height: 3.14rem;
+    width: 22.86rem;
+    box-sizing: border-box;
+  }
+}
+.dropdown__main:after {
+  content: "\e5cf";
+  color: $color-shade-third;
   font-size: 24px;
   font-family: "Material Icons";
+  pointer-events: none;
+}
+select:-ms-expand {
+  display: none;
+}
+
+// -new
+.dropdown {
+  color: black;
+  display: inline-block;
+  color: $color-shade-second;
+  transition: border-color 0.4s;
+  position: relative;
+  &__main {
+    display: flex;
+    padding: 0 1.07rem;
+    align-items: center;
+    border-radius: 0.29rem;
+    border: 0.07rem solid $color-shade-forth;
+    &:hover {
+      border-color: $color-shade-second;
+    }
+  }
+  &__title {
+    flex: 1;
+  }
+  &__content {
+    background-color: white;
+    visibility: hidden;
+    position: absolute;
+    z-index: 2;
+    width: 100%;
+    color: $color-shade-second;
+    padding: 0.5rem;
+    transition: border-color 0.4s;
+    box-sizing: border-box;
+  }
+}
+.show {
+  .dropdown__main {
+    border-radius: 0.29rem 0.29rem 0 0;
+    border-color: $color-shade-second;
+  }
+  border-radius: 0.29rem 0.29rem 0 0;
+  border-color: $color-shade-second;
+  .dropdown__content {
+    visibility: visible;
+    border-radius: 0 0 0.29rem 0.29rem;
+    border: 0.07rem solid $color-shade-second;
+    border-top: none;
+  }
 }
