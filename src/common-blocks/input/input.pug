@@ -7,11 +7,13 @@ mixin input(options)
       placeholder = options.placeholder,
       name = options.name
       )
-  if (options.type === 'checkbox')
-    if (options.mode === 'toggle')
-      label.input__label-toggle #{options.label}
-        input.input__toggle(
-          type = options.type,
-          name = options.name,
-          checked = options.checked
-        )
+  if (options.type === 'checkbox' || options.type === 'radio')
+    label(class=`input__label-${options.mode}`)
+      .input__text  #{options.label}
+      input(class=`input__${options.mode}`
+        type = options.type,
+        name = options.name,
+        checked = options.checked
+      )
+      if (options.mode === 'checkbox' || options.type === 'radio')
+        span

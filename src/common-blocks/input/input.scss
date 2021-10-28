@@ -11,6 +11,9 @@
   &:hover {
     border-color: $color-shade-second;
   }
+  &__text {
+    padding-left: 0.71rem;
+  }
   &__toggle[type="checkbox"] {
     -webkit-appearance: none;
     -moz-appearance: none;
@@ -55,6 +58,81 @@
   &_default {
     height: 3.14rem;
     width: 22.86rem;
+  }
+  &__checkbox {
+    margin: 0;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    display: flex;
+    span {
+      order: -1;
+      position: relative;
+      display: block;
+    }
+    & + span::before {
+      content: "";
+      display: inline-block;
+      width: 1.43rem;
+      height: 1.43rem;
+      box-sizing: border-box;
+      flex-shrink: 0;
+      flex-grow: 0;
+      transition: border 0.5s;
+      border: 0.07rem solid $color-purple;
+      border-radius: 0.29rem;
+      background-repeat: no-repeat;
+      background-position: center center;
+      background-size: 50% 50%;
+    }
+    &:checked + span::before {
+      font-family: "Material Icons";
+      content: "\e876";
+    }
+  }
+  &__label-radio {
+    display: flex;
+    & span::after {
+      content: "";
+      display: inline-block;
+      width: 1.43rem;
+      height: 1.43rem;
+      box-sizing: border-box;
+      flex-shrink: 0;
+      flex-grow: 0;
+      border: 0.07rem solid $color-purple;
+      border-radius: 50%;
+      background-color: white;
+      background-repeat: no-repeat;
+      background-position: center center;
+      background-size: 50% 50%;
+    }
+    span {
+      order: -1;
+    }
+    .input {
+      &__radio {
+        &:checked + span::after {
+          background: $color-gradient;
+          box-shadow: inset 0 0 0 0.21rem white;
+        }
+      }
+    }
+  }
+}
+input[type="radio"]:checked,
+input[type="radio"]:not(:checked) {
+  display: none;
+}
+.input__label-checkbox {
+  display: flex;
+  color: $color-shade-second;
+  span {
+    order: -1;
+    position: relative;
+  }
+  &:hover span::before {
+    border-color: black;
   }
 }
 input::-webkit-input-placeholder {
