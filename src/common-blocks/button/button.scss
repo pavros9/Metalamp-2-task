@@ -11,21 +11,33 @@
   justify-content: center;
   cursor: pointer;
   &_small {
-    width: 7.07rem;
-    // padding: 0 1.36rem;
+    padding: 0 1.43rem;
   }
   &_big {
     width: 22.86rem;
   }
   &_transparent {
-    background-image: linear-gradient(white, white), radial-gradient(circle at top left, #bc9cff 0%, #8ba4f9 100%);
-    border: double 0.14rem transparent;
-    background-origin: border-box;
-    background-clip: content-box, border-box;
-    padding: 0;
+    position: relative;
+    $border: 2px;
     color: $color-purple;
-    &:hover {
-      background-image: linear-gradient(white, white), radial-gradient(circle at top left, rgba(188, 156, 255, 0.5) 0%, rgba(139, 164, 249, 0.5) 100%);
+    background: white;
+    background-clip: padding-box;
+    border: solid $border transparent;
+    &::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      z-index: -1;
+      margin: -$border;
+      border-radius: inherit;
+      background: $color-gradient;
+      transition: opacity 0.4s;
+    }
+    &:hover::before {
+      opacity: 0.5;
     }
   }
   &_solid {

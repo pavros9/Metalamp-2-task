@@ -14,6 +14,7 @@
   &__text {
     padding-left: 0.71rem;
   }
+
   &__toggle[type="checkbox"] {
     -webkit-appearance: none;
     -moz-appearance: none;
@@ -57,7 +58,7 @@
   }
   &_default {
     height: 3.14rem;
-    width: 22.86rem;
+    flex: 1 1 22.86rem;
   }
   &__checkbox {
     margin: 0;
@@ -120,6 +121,24 @@
     }
   }
 }
+// временно.  надо пофиксить!!!!
+.wrapper-input {
+  position: relative;
+  display: flex;
+  .input__button {
+    position: absolute;
+    right: 0;
+    top: 0;
+    border: 0;
+    color: $color-shade-second;
+    font-size: 1.71rem;
+    background: none;
+    padding: 0.71rem;
+  }
+}
+
+// /временно
+
 input[type="radio"]:checked,
 input[type="radio"]:not(:checked) {
   display: none;
