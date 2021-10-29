@@ -13,5 +13,6 @@ module.exports = {
       Style: path.resolve(__dirname, "../src/style/"),
       Assets: path.resolve(__dirname, "../src/assets/"),
     },
+    modules: ["node_modules"],
   },
 };

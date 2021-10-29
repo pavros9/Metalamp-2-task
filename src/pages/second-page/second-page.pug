@@ -25,6 +25,9 @@ block content
         +input({type: 'checkbox', mode: 'toggle', label: 'Получать спецпредложение'})
       +form-item({title: "Dropdown"})
         +dropdown
+      +form-item({title: "Masked Text field"})
+        +input({class: 'input-mask', inputmask: "'alias': 'datetime'", type: 'text', placeholder: 'ДД.ММ.ГГГГ'})
+        +input({class: 'input-mask', inputmask: "'alias': 'datetime'", type: 'text', placeholder: 'ДД.ММ.ГГГГ'})
 
       +form-item({title: "Checkbox buttons"})
         +input({type: 'checkbox', mode: 'checkbox', label: 'Можно курить'})

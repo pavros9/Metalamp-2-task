@@ -1,16 +1,18 @@
 mixin input(options)
   if !options
     - options = {}
-  if (options.type ==='text' || options.type ==='email')
+  if (options.type ==='text' || options.type ==='email' || options.type ==='date')
     input.input.input_default(
+      class = options.class,
       type = options.type, 
       placeholder = options.placeholder,
-      name = options.name
+      name = options.name,
+      data-inputmask = options.inputmask
       )
   if (options.type === 'checkbox' || options.type === 'radio')
     label(class=`input__label-${options.mode}`)
       .input__text  #{options.label}
-      input(class=`input__${options.mode}`
+      input(class=[`input__${options.mode}`],
         type = options.type,
         name = options.name,
         checked = options.checked
