@@ -1,20 +1,46 @@
 @import "Style/constants";
-
+@import "Style/mixins";
 .button {
-  height: 3.14rem;
   border-radius: 1.57rem;
   font-size: 0.86rem;
   text-transform: uppercase;
   font-weight: bold;
-  display: flex;
   align-items: center;
-  justify-content: center;
   cursor: pointer;
+  text-decoration: none;
+  display: inline-block;
+  box-sizing: border-box;
+  &__like {
+    @include oval-rectangle;
+    background: transparent;
+    font-size: 0.71rem;
+    position: relative;
+    padding-left: 1.43rem;
+    &::before {
+      font-family: "Material Icons";
+      content: "\e87e";
+      position: absolute;
+      padding: 0 0.36rem;
+      color: $color-shade-forth;
+      left: 0;
+      top: 50%;
+      transform: translate(0, -50%);
+    }
+    &_active {
+      &::before {
+        content: "\e87d";
+      }
+    }
+    // &:hover::before {
+    //
+    // }
+  }
   &_small {
-    padding: 0 1.43rem;
+    padding: 1rem 1.43rem 1.07rem 1.43rem;
   }
   &_big {
-    width: 22.86rem;
+    min-width: 22.86rem;
+    padding: 1rem 1.43rem 1.07rem 1.43rem;
   }
   &_transparent {
     position: relative;

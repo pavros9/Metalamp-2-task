@@ -1,6 +1,12 @@
 mixin button( options)
   if !options
     - options = {}
-  button.button(
-    class = options.class 
-  ) #{options.text}
+  if (options.mode==='button')
+    button.button(
+      class = options.class 
+    ) #{options.text}
+  if (options.mode==='link')
+    a.button(
+      class = options.class,
+      href = options.href
+    ) #{options.text}

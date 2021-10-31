@@ -1,0 +1,8 @@
+@mixin oval-rectangle() {
+  border: 1px solid $color-shade-forth;
+  order: -1;
+  height: 1.43rem;
+  min-width: 2.76rem;
+  border-radius: 0.71rem;
+  display: flex;
+}
