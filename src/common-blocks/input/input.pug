@@ -24,3 +24,14 @@ mixin input(options)
       )
       if (options.mode === 'checkbox' || options.type === 'radio')
         span
+
+        
+  if (options.mode === 'rating')
+    .rating.rating_set
+      .rating__body
+        .rating__active
+        .rating__items
+          - var n = 1
+          while n < 6
+            input.rating__item(type="radio" value = `${n++}` name="rating")
+          

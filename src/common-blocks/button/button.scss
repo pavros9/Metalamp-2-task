@@ -29,6 +29,9 @@
     &_active {
       &::before {
         content: "\e87d";
+        background: $color-gradient;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
       }
     }
     // &:hover::before {

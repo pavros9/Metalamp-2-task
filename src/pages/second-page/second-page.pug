@@ -43,9 +43,13 @@ block content
       +form-item({title: "Like button"})
         +button({mode: 'button', class: 'button__like', text: '2'})
         +button({mode: 'button', class: 'button__like button__like_active', text: '12'})
-      +button({mode: 'button', text: 'Стандарт'})
-      +button({mode: 'button', text: 'Click me', class: ['button_small', 'button_transparent']})
-      +button({mode: 'link', href: '#', text: 'Войти', class: ['button_small', 'button_transparent']})
-      +button({mode: 'link', href: '#',text: 'Войти', class: ['button_small', 'button_solid']})
-      +button({mode: 'button', text: 'Подключить', class: ['button_big', 'button_solid']})
+      +form-item({title: "Rate Buttons"})
+        +input({mode: 'rating'})
+      +form-item({title: "Buttons"})
+        +button({mode: 'button', text: 'Стандарт'})
+        +button({mode: 'button', text: 'Click me', class: ['button_small', 'button_transparent']})
+        +button({mode: 'link', href: '#', text: 'Войти', class: ['button_small', 'button_transparent']})
+        +button({mode: 'link', href: '#',text: 'Войти', class: ['button_small', 'button_solid']})
+        +button({mode: 'button', text: 'Подключить', class: ['button_big', 'button_solid']})
+      
       
