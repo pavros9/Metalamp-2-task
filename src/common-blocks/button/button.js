@@ -1,5 +1,6 @@
 import "./button.scss";
 
+// const
 window.addEventListener("click", function (event) {
   let target = event.target;
 

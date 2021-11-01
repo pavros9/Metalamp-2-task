@@ -63,29 +63,37 @@
     -moz-appearance: none;
     appearance: none;
     display: flex;
-    span {
-      order: -1;
-      position: relative;
-      display: block;
-    }
-    & + span::before {
+
+    &:checked + span::after {
       content: "";
-      display: inline-block;
-      width: 1.43rem;
+      position: absolute;
+      background: url(../../assets/svg/jackdaw.svg);
+      top: 0;
+      left: 0;
+      width: 10px;
+      height: 9px;
+    }
+    &:checked + span::before {
+      content: "";
+      position: absolute;
+    }
+  }
+  &__label-checkbox {
+    display: flex;
+    color: $color-shade-second;
+    span {
+      flex: 0 0 1.43rem;
       height: 1.43rem;
+      display: block;
       box-sizing: border-box;
-      flex-shrink: 0;
-      flex-grow: 0;
       transition: border 0.5s;
       border: 0.07rem solid $color-purple;
       border-radius: 0.29rem;
-      background-repeat: no-repeat;
-      background-position: center center;
-      background-size: 50% 50%;
+      order: -1;
+      position: relative;
     }
-    &:checked + span::before {
-      font-family: "Material Icons";
-      content: "\e876";
+    &:hover span::before {
+      border-color: black;
     }
   }
   &__label-radio {
@@ -131,6 +139,9 @@
     font-size: 1.71rem;
     background: none;
     padding: 0.71rem;
+    background: $color-gradient;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
   }
 }
 
@@ -139,17 +150,7 @@
 input[type="radio"]:checked,
 input[type="radio"]:not(:checked) {
   // display: none;
-}
-.input__label-checkbox {
-  display: flex;
-  color: $color-shade-second;
-  span {
-    order: -1;
-    position: relative;
-  }
-  &:hover span::before {
-    border-color: black;
-  }
+  opacity: 0;
 }
 input::-webkit-input-placeholder {
   color: $color-shade-forth;
