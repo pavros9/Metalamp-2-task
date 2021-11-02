@@ -6,6 +6,7 @@ include ../../common-blocks/form-item/form-item
 include ../../common-blocks/button/button
 include ../../common-blocks/input/input
 include ../../common-blocks/dropdown/dropdown
+include ../../common-blocks/range-slider/range-slider
 
 
 block title
@@ -41,15 +42,19 @@ block content
       +form-item({title: "Subscription text field"})
         +input({class: 'input__email_with-button',type: 'email', placeholder: 'Email', button: 'true'})
       +form-item({title: "Like button"})
-        +button({mode: 'button', class: 'button__like', text: '2'})
-        +button({mode: 'button', class: 'button__like button__like_active', text: '12'})
+        //- +button({mode: 'button', class: 'button__like', text: '2'})
+        //- +button({mode: 'button', class: 'button__like button__like_active', text: '12'})
       +form-item({title: "Rate Buttons"})
         +input({mode: 'rating'})
       +form-item({title: "Buttons"})
-        +button({mode: 'button', text: 'Стандарт'})
-        +button({mode: 'button', text: 'Click me', class: ['button_small', 'button_transparent']})
-        +button({mode: 'link', href: '#', text: 'Войти', class: ['button_small', 'button_transparent']})
-        +button({mode: 'link', href: '#',text: 'Войти', class: ['button_small', 'button_solid']})
-        +button({mode: 'button', text: 'Подключить', class: ['button_big', 'button_solid']})
+        +button({size: 'middle', theme: 'solid',text: "Click me"})
+        +button({size: 'middle', theme: 'solid', tag: "a"})
+        +button({size: 'middle', theme: 'transparent', text: "Click me"})
+        +button({size: 'big', theme: 'transparent', tag: "a"})
+        +button({size: 'big', theme: 'solid', text: "Подключить"})
+        +button({size: "small", text: "12"})
+      +form-item({title: "Range slider"})
+        +range-slider()
+      
       
       

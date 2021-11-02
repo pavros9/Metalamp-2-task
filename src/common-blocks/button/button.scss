@@ -10,36 +10,33 @@
   text-decoration: none;
   display: inline-block;
   box-sizing: border-box;
-  &__like {
-    @include oval-rectangle;
-    background: transparent;
-    font-size: 0.71rem;
-    position: relative;
-    padding-left: 1.43rem;
-    &::before {
-      font-family: "Material Icons";
-      content: "\e87e";
-      position: absolute;
-      padding: 0 0.36rem;
-      color: $color-shade-forth;
-      left: 0;
-      top: 50%;
-      transform: translate(0, -50%);
-    }
-    &_active {
-      &::before {
-        content: "\e87d";
-        background: $color-gradient;
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-      }
-    }
-    // &:hover::before {
-    //
-    // }
+  text-align: center;
+  $border: 2px;
+  // &__like {
+  //   @include oval-rectangle;
+  //   background: transparent;
+  //   font-size: 0.71rem;
+  //   position: relative;
+  //   padding-left: 1.43rem;
+  //   &::before {
+  //     font-family: "Material Icons";
+  //     content: "\e87e";
+  //     position: absolute;
+  //     padding: 0 0.36rem;
+  //     color: $color-shade-forth;
+  //     left: 0;
+  //     top: 50%;
+  //     transform: translate(0, -50%);
+  //   }
+  &_is-like {
   }
   &_small {
-    padding: 1rem 1.43rem 1.07rem 1.43rem;
+    padding-left: 1.43rem;
+    height: 1.43rem;
+    min-width: 2.76rem;
+  }
+  &_middle {
+    padding: 0.94rem 1.21rem;
   }
   &_big {
     min-width: 22.86rem;
@@ -47,7 +44,6 @@
   }
   &_transparent {
     position: relative;
-    $border: 2px;
     color: $color-purple;
     background: white;
     background-clip: padding-box;
@@ -72,7 +68,6 @@
   &_solid {
     background: $color-gradient;
     color: white;
-    border: none;
     &:hover {
       background: linear-gradient(rgba(188, 156, 255, 0.5), rgba(139, 164, 249, 0.5));
     }

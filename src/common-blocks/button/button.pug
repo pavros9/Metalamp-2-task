@@ -1,12 +1,16 @@
 mixin button( options)
   if !options
     - options = {}
-  if (options.mode==='button')
-    button.button(
-      class = options.class 
-    ) #{options.text}
-  if (options.mode==='link')
-    a.button(
-      class = options.class,
-      href = options.href
-    ) #{options.text}
+  -
+    var classes = ''
+    classes += options.type ? ' button_' + options.type : ''
+    classes += options.size ? ' button_' + options.size : ''
+    classes += options.theme ? ' button_' + options.theme : ''
+    classes += options.islike ? ' button_' + options.isLike : ''
+  
+  - var tag = options.tag ? "a" : "button"
+  
+  #{tag}.button(class=classes)(
+    type = options.isSubmit ? 'submit' : false,
+    tabindex = options.tabindex || false
+  )= options.text || 'Button'
