@@ -3,11 +3,13 @@
 
 .input {
   border-radius: 0.29rem;
-  border: 0.07rem solid $color-shade-forth;
-  padding: 0 1.07rem;
+  border: none;
+  padding: 0.67rem 1.07rem;
   color: $color-shade-second;
   transition: border-color 0.4s;
   outline: none;
+  flex: 1 1 22.86rem;
+  line-height: 1.71rem;
   &:focus,
   &:hover {
     border-color: $color-shade-second;
@@ -52,10 +54,6 @@
   &__label-toggle {
     display: flex;
     align-items: center;
-  }
-  &_default {
-    height: 3.14rem;
-    flex: 1 1 22.86rem;
   }
   &__checkbox {
     margin: 0;
@@ -128,17 +126,18 @@
 }
 // временно.  надо пофиксить!!!!
 .wrapper-input {
-  position: relative;
   display: flex;
+  border: 0.07rem solid rgba(31, 32, 65, 0.25);
+  border-radius: 0.29rem;
+  transition: border-color 0.4s;
+  &:hover {
+    border-color: $color-shade-second;
+  }
   .input__button {
-    position: absolute;
-    right: 0;
-    top: 0;
-    border: 0;
     color: $color-shade-second;
     font-size: 1.71rem;
-    background: none;
-    padding: 0.71rem;
+    padding: 0 0.72rem;
+    border: none;
     background: $color-gradient;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
