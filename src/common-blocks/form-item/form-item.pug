@@ -6,4 +6,9 @@ mixin form-item(options)
       h3.form-item__title #{options.title}
       if options.modifier
         span.form-item__modifier #{options.modifier}
+      if options.isRangeSlider
+        .form-item__modifier.numbers-range
+          span.first-number
+          |  - 
+          span.second-number
     block

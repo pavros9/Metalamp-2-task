@@ -1,3 +1,5 @@
+@import "Style/constants";
+
 .form-item {
   max-width: 22.86rem;
   display: block;
@@ -9,5 +11,6 @@
   }
   &__modifier {
     font-size: 0.86rem;
+    color: $color-shade-second;
   }
 }

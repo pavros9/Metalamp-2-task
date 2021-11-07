@@ -1,0 +1,41 @@
+@import "Style/constants";
+
+.js-range-slider {
+  height: 0.43rem;
+  border: 0.07rem solid $color-shade-forth;
+  position: relative;
+  .noUi-handle::before,
+  .noUi-handle::after {
+    display: none;
+  }
+  .noUi-handle {
+    border-radius: 50%;
+    height: 1.14rem;
+    width: 1.14rem;
+    right: -0.36rem;
+    top: -0.43rem;
+    border: 0.14rem solid white;
+    box-shadow: none;
+    background: linear-gradient(#6fcf97 0%, #66d2ea 100%);
+  }
+  .noUi-connect {
+    background: linear-gradient(#6fcf97 0%, #66d2ea 100%);
+    height: 0.43rem;
+    top: -0.07rem;
+    &::after {
+      content: "";
+      position: absolute;
+      height: 100%;
+      width: 100%;
+      border: 0.07rem solid white;
+      top: -0.07rem;
+    }
+  }
+  .noUi-base,
+  .noUi-connects {
+    position: static;
+  }
+}
+.numbers-range {
+  min-width: 7.14rem;
+}
