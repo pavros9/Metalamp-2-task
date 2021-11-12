@@ -62,19 +62,13 @@
     appearance: none;
     display: flex;
 
-    &:checked + span::after {
-      content: "";
-      position: absolute;
-      background: url(../../assets/svg/jackdaw.svg);
-      top: 0;
-      left: 0;
-      width: 10px;
-      height: 9px;
+    &:checked + span img {
+      display: block;
     }
-    &:checked + span::before {
-      content: "";
-      position: absolute;
-    }
+    // &:checked + span::before {
+    //   content: "";
+    //   position: absolute;
+    // }
   }
   &__label-checkbox {
     // background: url("./img/lol.jpg");
@@ -83,13 +77,19 @@
     span {
       flex: 0 0 1.43rem;
       height: 1.43rem;
-      display: block;
+      display: flex;
       box-sizing: border-box;
       transition: border 0.5s;
       border: 0.07rem solid $color-purple;
       border-radius: 0.29rem;
+      justify-content: center;
+      align-items: center;
       order: -1;
-      position: relative;
+      img {
+        display: none;
+        width: 0.71rem;
+        height: 0.64rem;
+      }
     }
     &:hover span::before {
       border-color: black;
