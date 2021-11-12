@@ -1,3 +1,4 @@
+
 mixin input(options)
   if !options
     - options = {}
@@ -24,7 +25,7 @@ mixin input(options)
       )
       if (options.mode === 'checkbox' || options.type === 'radio')
         span
-
+ 
         
   if (options.mode === 'rating')
     .rating.rating_set
@@ -34,4 +35,4 @@ mixin input(options)
           - var n = 1
           while n < 6
             input.rating__item(type="radio" value = `${n++}` name="rating")
-          
+      img(alt="Accessible alternate text" src=require('../../assets/img/lol.jpg').default)

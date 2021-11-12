@@ -35,6 +35,12 @@ const htmlPlugins = pages.map(
       inject: "body",
       hash: true,
       minify: false,
+      publicPath: "/",
+      // optimization: {
+      //   splitChunks: {
+      //     chunks: "all",
+      //   },
+      // },
     })
 );
 
@@ -106,8 +112,23 @@ module.exports = merge(BaseConfig, {
       },
       {
         test: /\.(png|jpg|svg|gif)$/,
-        include: [path.resolve(__dirname, "img/")],
-        type: "asset/resource",
+        use: [
+          {
+            loader: "file-loader",
+            options: {
+              name: "images/[name].[contenthash:4].[ext]",
+            },
+          },
+          {
+            loader: "image-webpack-loader",
+            // options: {
+            //   mozjpeg: {
+            //     progressive: true,
+            //     quality: 65,
+            //   },
+            // },
+          },
+        ],
       },
       {
         test: /\.(ttf|otf|woff|woff2|eot|font.*\.svg$)$/,
@@ -133,9 +154,14 @@ module.exports = merge(BaseConfig, {
       },
       {
         test: /\.pug$/,
-        use: {
-          loader: "pug-loader?pretty=true",
-        },
+        use: [
+          {
+            loader: "apply-loader",
+          },
+          {
+            loader: "pug-loader?pretty=true",
+          },
+        ],
       },
     ],
   },
