@@ -6,11 +6,20 @@ mixin button( options)
     classes += options.type ? ' button_' + options.type : ''
     classes += options.size ? ' button_' + options.size : ''
     classes += options.theme ? ' button_' + options.theme : ''
-    classes += options.islike ? ' button_' + options.isLike : ''
+    classes += options.isLike ? ' button_with-like' : ''
+    classes += options.isConnect ? ' button_connected' : ''
+    classes += options.activeLike ? ' button_with-like_' + options.activeLike : ''
+    if (!options.isLike) {
+        classes += ' button_default'
+    }
   
   - var tag = options.tag ? "a" : "button"
-  
-  #{tag}.button(class=classes)(
+
+  #{tag}.button(class=classes,
     type = options.isSubmit ? 'submit' : false,
     tabindex = options.tabindex || false
-  )= options.text || 'Button'
+  )
+    .button__text= options.text || 'Button'
+  
+  
+  

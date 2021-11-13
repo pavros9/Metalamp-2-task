@@ -11,14 +11,14 @@ block title
   | Ui Kit
 
 block variables
-  - data = htmlWebpackPlugin.options.getData()
+  //- - data = htmlWebpackPlugin.options.getData()
 
 block content
-  +layout
-    +color-type
-      +colors
-        for item in data.colors
-          +color(item.color, item.term, item.definition)
-      +types
-        for item in data.text
-          +type(item.tag, item.term, item.definition)  
+  //- +layout
+  //-   +color-type
+  //-     +colors
+  //-       for item in data.colors
+  //-         +color(item.color, item.term, item.definition)
+  //-     +types
+  //-       for item in data.text
+  //-         +type(item.tag, item.term, item.definition)  
