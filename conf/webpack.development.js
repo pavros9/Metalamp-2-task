@@ -94,6 +94,11 @@ module.exports = merge(BaseConfig, {
     new MiniCssExtractPlugin({
       filename: filename("css"),
     }),
+    new webpack.ProvidePlugin({
+      $: "jquery/dist/jquery.min.js",
+      jQuery: "jquery/dist/jquery.min.js",
+      "window.jQuery": "jquery/dist/jquery.min.js",
+    }),
   ].concat(htmlPlugins),
   module: {
     rules: [
