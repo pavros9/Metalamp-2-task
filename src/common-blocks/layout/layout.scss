@@ -1,6 +1,7 @@
 .layout {
-  max-width: 1380px;
-  margin: auto;
+}
+.layout_flex-row {
   display: flex;
-  flex-direction: column;
+  justify-content: center;
+  flex-wrap: wrap;
 }

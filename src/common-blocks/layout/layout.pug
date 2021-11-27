@@ -1,3 +1,9 @@
-mixin layout()
-  .layout
-    block
+mixin layout(options)
+  if !options
+    - options = {}
+  if (options.mode)
+    div(class=`layout_${options.mode}`)
+      block
+  if (!options.mode)
+    .layout
+      block

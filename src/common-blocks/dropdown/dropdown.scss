@@ -7,13 +7,13 @@
     box-sizing: border-box;
   }
 }
-.dropdown__main:after {
-  content: "\e5cf";
-  color: $color-shade-third;
-  font-size: 24px;
-  font-family: "Material Icons";
-  pointer-events: none;
-}
+// .dropdown__main:after {
+//   content: "\e5cf";
+//   color: $color-shade-third;
+//   font-size: 24px;
+//   font-family: "Material Icons";
+//   pointer-events: none;
+// }
 select:-ms-expand {
   display: none;
 }
@@ -26,10 +26,12 @@ select:-ms-expand {
   position: relative;
   &__main {
     display: flex;
-    padding: 0 1.07rem;
     align-items: center;
     border-radius: 0.29rem;
     border: 0.07rem solid $color-shade-forth;
+    .input {
+      border: none;
+    }
     &:hover {
       border-color: $color-shade-second;
     }

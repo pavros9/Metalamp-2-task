@@ -1,1 +1,0 @@
-import noUiSlider from "nouislider";

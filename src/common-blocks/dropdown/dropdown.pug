@@ -1,6 +1,15 @@
-mixin dropdown()
-  .dropdown.wrapper-select
-    .dropdown__main.wrapper-select_default 
-      .dropdown__title Сколько гостей
+include ../input/input
+
+mixin dropdown(options)
+  
+  if !options
+    - options = {}
+
+
+  .dropdown
+    .dropdown__title
+      .dropdown__main
+        +input({type: 'text', value: options.value, read: 'readonly', isDropdown: 'true'})
     .dropdown__content
       block
+  
