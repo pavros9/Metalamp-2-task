@@ -1,6 +1,8 @@
 import "./input.scss";
 
 import Inputmask from "inputmask";
+import AirDatepicker from "air-datepicker";
+import "air-datepicker/air-datepicker.css";
 
 document.addEventListener("DOMContentLoaded", () =>
   Inputmask({
@@ -79,4 +81,29 @@ function initRatings() {
       });
     }
   }
+
+  // DatePicker
+  let button = {
+    content: "Применить",
+    className: "custom-button-classname",
+    onClick: (dp) => {
+      // let date = new Date("2021-07-26");
+      // dp.selectDate(date);
+      // dp.setViewDate(date);
+    },
+  };
+
+  const inputsDatePicker = document.querySelectorAll(".input_withDatepicker");
+
+  inputsDatePicker.forEach((input) => {
+    new AirDatepicker(input, {
+      selectedDates: [new Date()],
+      navTitles: {
+        days: "<strong>MMMM yyyy</strong>",
+      },
+      buttons: ["clear", button],
+    });
+  });
+
+  // -/DatePicker
 }

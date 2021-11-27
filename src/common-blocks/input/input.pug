@@ -2,17 +2,27 @@
 mixin input(options)
   if !options
     - options = {}
+  -
+    var classes = ''
+    classes += options.withDatePicker ? ' input_' + options.withDatePicker : ''
+  -
+    var modeInput = ''
+    modeInput += options.withStaticPicker ? ' input_withDatePicker' : ''
   if (options.type ==='text' || options.type ==='email' || options.type ==='date')
-    .wrapper-input
-      input.input(
-        class = options.class,
+    .input(class = modeInput )
+      input.input__main(
+        class = classes,
         type = options.type, 
         placeholder = options.placeholder,
         name = options.name,
-        data-inputmask = options.inputmask
+        data-inputmask = options.inputmask,
+        value = options.value,
+        readonly = options.read
         )
       if (options.isSubmit) 
         button.input__button.material-icons-outlined arrow_forward
+      if (options.isDropdown)
+        button.input__button.input_withDropdown.material-icons-outlined expand_more
     
     
   if (options.type === 'checkbox' || options.type === 'radio')
