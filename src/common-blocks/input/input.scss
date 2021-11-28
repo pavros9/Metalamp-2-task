@@ -1,26 +1,29 @@
 @import "Style/constants";
 @import "Style/mixins";
-
-.input__main {
-  border-radius: 0.29rem;
-  border: none;
-  padding: 0.67rem 1.07rem;
-  color: $color-shade-second;
-  transition: border-color 0.4s;
-  outline: none;
-  flex: 1 1 22.86rem;
-  line-height: 1.71rem;
-  &:focus,
-  &:hover {
-    border-color: $color-shade-second;
-  }
-}
-
+@import "../../library-blocks/datepicker/datepicker";
 .input {
   display: flex;
   border: 0.07rem solid rgba(31, 32, 65, 0.25);
   border-radius: 0.29rem;
   transition: border-color 0.4s;
+  &_withDate {
+    max-width: 10.57rem;
+    position: relative;
+    .input__main {
+      text-transform: uppercase;
+    }
+    &::after {
+      position: absolute;
+      font-family: "Material Icons";
+      font-size: 1.71rem;
+      padding: 0 0.71rem;
+      color: $color-shade-third;
+      content: "\e5cf";
+      top: 50%;
+      transform: translate(0, -50%);
+      right: 0;
+    }
+  }
   .input__button.input_withDropdown {
     background: $color-shade-third;
     -webkit-background-clip: text;
@@ -44,6 +47,23 @@
     background: $color-gradient;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+  }
+  &__main {
+    border-radius: 0.29rem;
+    border: none;
+    padding: 0.67rem 1.07rem;
+    color: $color-shade-second;
+    transition: border-color 0.4s;
+    outline: none;
+    flex: 1 1 22.86rem;
+    line-height: 1.71rem;
+    &_withDatePicker {
+      max-width: 148px;
+    }
+    &:focus,
+    &:hover {
+      border-color: $color-shade-second;
+    }
   }
   &__text {
     padding-left: 0.71rem;
@@ -244,93 +264,3 @@ input:hover-moz-placeholder {
 }
 
 // --/rating--
-
-/// -- air-datapicker --
-.air-datepicker {
-  min-width: 22.86rem;
-  border: 1px solid $color-shade-forth;
-  font-family: "Montserrat", sans-serif;
-  --adp-day-cell-height: 40px;
-  .air-datepicker-nav {
-    padding: 1.43rem;
-    border-bottom: none;
-    .air-datepicker-nav--action {
-      position: relative;
-      font-size: 1.71rem;
-      color: $color-purple;
-      &::after {
-        position: absolute;
-        font-family: "Material Icons";
-        top: 50%;
-        transform: translate(0, -50%);
-      }
-      svg {
-        display: none;
-      }
-    }
-    .air-datepicker-nav--action[data-action="prev"] {
-      &::after {
-        content: "\e5c4";
-        left: 0;
-      }
-    }
-    .air-datepicker-nav--action[data-action="next"] {
-      &::after {
-        content: "\e5c8";
-        right: 0;
-      }
-    }
-    .air-datepicker-nav--title {
-      font-size: 1.36rem;
-      color: $color-shade-first;
-    }
-  }
-  .air-datepicker--content {
-    padding: 0 1.43rem;
-  }
-  .air-datepicker-body {
-    .air-datepicker-body--day-names {
-      .air-datepicker-body--day-name {
-        color: $color-purple;
-        font-weight: bold;
-        font-size: 0.86rem;
-        text-transform: initial;
-      }
-    }
-    .air-datepicker-body--cells {
-      // min-width: 20.5rem;
-      .air-datepicker-cell.-day- {
-        min-height: 2.86rem;
-        max-width: 2.86rem;
-        font-size: 0.86rem;
-        border-radius: 50%;
-        color: $color-shade-third;
-      }
-      .air-datepicker-cell.-day-.-other-month- {
-        color: $color-shade-forth;
-      }
-
-      .air-datepicker-cell.-day-.-selected- {
-        background: linear-gradient(#6fcf97 0%, #66d2ea 100%);
-      }
-    }
-  }
-  .air-datepicker--buttons {
-    border-top: none;
-    padding: 0 1.43rem;
-    .air-datepicker-buttons {
-      padding: 1.43rem 0;
-      display: flex;
-      justify-content: space-between;
-    }
-    .air-datepicker-button {
-      max-height: 16px;
-      padding: 0;
-      font-weight: bold;
-      color: $color-purple;
-      text-transform: uppercase;
-    }
-  }
-}
-
-/// -- / air-datapicker
