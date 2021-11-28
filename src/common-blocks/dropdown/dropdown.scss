@@ -29,6 +29,18 @@ select:-ms-expand {
     align-items: center;
     border-radius: 0.29rem;
     border: 0.07rem solid $color-shade-forth;
+    position: relative;
+    &::after {
+      position: absolute;
+      font-family: "Material Icons";
+      font-size: 1.71rem;
+      padding: 0 0.71rem;
+      color: $color-shade-third;
+      content: "\e5cf";
+      top: 50%;
+      transform: translate(0, -50%);
+      right: 0;
+    }
     .input {
       border: none;
     }

@@ -10,6 +10,11 @@
     justify-content: space-between;
     margin-bottom: 0.36rem;
   }
+  &__main {
+    &_horizontal {
+      display: flex;
+    }
+  }
   &__modifier {
     font-size: 0.86rem;
     color: $color-shade-second;
