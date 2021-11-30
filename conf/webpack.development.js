@@ -64,7 +64,6 @@ module.exports = merge(BaseConfig, {
   output: {
     filename: filename("js"),
     path: path.resolve(__dirname, "..", "dist"),
-    // publicPath: "./",
   },
   optimization: {
     splitChunks: {
@@ -72,7 +71,7 @@ module.exports = merge(BaseConfig, {
     },
     runtimeChunk: "single",
   },
-  devtool: "source-map",
+  // devtool: "",
   devServer: {
     hot: false,
     client: false,
@@ -117,6 +116,7 @@ module.exports = merge(BaseConfig, {
       },
       {
         test: /\.(png|jpg|svg|gif)$/,
+        dependency: { not: ["url"] },
         use: [
           {
             loader: "file-loader",
@@ -126,17 +126,23 @@ module.exports = merge(BaseConfig, {
           },
           {
             loader: "image-webpack-loader",
-            // options: {
-            //   mozjpeg: {
-            //     progressive: true,
-            //     quality: 65,
-            //   },
-            // },
+            options: {
+              name: "images/[name].[contenthash:4].[ext]",
+            },
           },
+          // options: {
+          //   mozjpeg: {
+          //     progressive: true,
+          //     quality: 65,
+          //   },
+          // },
+          // },
+          // ],
+          // type: "asset/resource",
         ],
       },
       {
-        test: /\.(ttf|otf|woff|woff2|eot|font.*\.svg$)$/,
+        test: /\.(ttf|otf|woff|woff2|eot|font)$/,
         type: "asset/resource",
       },
       {

@@ -16,75 +16,75 @@ block title
 block variables
 
 block content
-  +layout({mode: "flex-row"})
-    +layout()
-      +form-items
-        +form-item({title: "Text field", modifier: "Default"})
-          +input({type: 'email', placeholder: 'Email'})
+  +layout({mode: "for-page"})
+    +layout({mode: "flex-row"})
+      +layout()
+        +form-items
+          +form-item({title: "Text field", modifier: "Default"})
+            +input({type: 'email', placeholder: 'Email'})
 
-        +form-item({title: "Text field", modifier: "Hover / focus"})
-          +input({type: 'text', placeholder: 'This is pretty awesome'})
+          +form-item({title: "Text field", modifier: "Hover / focus"})
+            +input({type: 'email', placeholder: 'This is pretty awesome', focus: "focused"})
 
-        +form-item({title: "Toggle"})
-          +input({type: 'checkbox', mode: 'toggle', label: 'Получать спецпредложение', checked: 'checked'})
-          +input({type: 'checkbox', mode: 'toggle', label: 'Получать спецпредложение'})
+          +form-item({title: "Dropdown"})
+            +dropdown({value: "Сколько гостей"})
+              +input({mode: 'rating'})
 
-        +form-item({title: "Dropdown"})
-          +dropdown({value: "Сколько гостей"})
+          +form-item({title: "Masked Text field"})
+            +input({class: 'input-mask', inputmask: "'alias': 'datetime'", type: 'text', placeholder: 'ДД.ММ.ГГГГ'})
+
+          +form-item({title: "Date dropdown", horizontal: true})
+            +input({type: "text", value: "дд.мм.гггг",  withDatePicker: "withDatePicker", isDropdown: 'true',})
+            +input({type: "text", value: "19.08.2019", withDatePicker: "withDatePicker", isDropdown: 'true'})
+
+          //- +form-item({title: "Date dropdown"})
+          //-   +input({type: "text", value: "дд.мм.гггг", withStaticPicker: true, isDropdown: 'true'})
+
+          +form-item({title: "Filter Date Dropdown"})
+            +input({type: "text", value: "19.08.2019", withDatePicker: "withDatePicker", isDropdown: 'true'})
+          
+          +form-item({title: "Subscription text field"})
+            +input({type: 'email', placeholder: 'Email', isSubmit: 'true'})
+          
+          //- +form-item({title: "Masked Text field"})
+          //-   +input({class: 'input-mask', withDatePicker: "withDatepicker", inputmask: "'alias': 'datetime'", type: 'text', placeholder: 'ДД.ММ.ГГГГ'})
+      +layout()
+        +form-items
+          +form-item({title: "Checkbox buttons"})
+            +input({type: 'checkbox', mode: 'checkbox', label: 'Можно курить'})
+            +input({type: 'checkbox', mode: 'checkbox', label: 'Можно с питомцами'})
+            +input({type: 'checkbox', mode: 'checkbox', label: 'Можно пригласить гостей (до 10 человек)'})
+
+          +form-item({title: "Radio buttons", horizontal: true})
+            +input({type: 'radio', mode: 'radio', name: 'gender', checked: 'checked', label: 'Мужчина'})
+            +input({type: 'radio', mode: 'radio', name: 'gender', label: 'Женщина'})
+
+          +form-item({title: "Toggle"})
+            +input({type: 'checkbox', mode: 'toggle', label: 'Получать спецпредложение', checked: 'checked'})
+            +input({type: 'checkbox', mode: 'toggle', label: 'Получать спецпредложение'})
+
+          +form-item({title: "Like button"})
+            +button({mode: 'button', isLike: true, text: '2'})
+            +button({mode: 'button', isLike: true, text: '12', activeLike: 'active'})
+
+          +form-item({title: "Rate Buttons"})
             +input({mode: 'rating'})
+      +layout()
+        +form-items
+          +form-item({title: "Range slider", isRangeSlider: 'true'})
+            +range-slider()
 
-        +form-item({title: "Date dropdown", horizontal: true})
-          +input({type: "text", value: "дд.мм.гггг",  withDatePicker: "withDatePicker", isDropdown: 'true',})
-          +input({type: "text", value: "19.08.2019", withDatePicker: "withDatePicker", isDropdown: 'true'})
+          +form-item({title: "Buttons"})
+            +button({size: 'middle', theme: 'solid',text: "Click me"})
+            +button({size: 'middle', theme: 'solid', tag: "a"})
+            +button({size: 'middle', text: "Click me"})
+            +button({size: 'big', tag: "a"})
+            +button({size: 'big', theme: 'solid', text: "Подключить", isConnect: true, })
 
-        +form-item({title: "Date dropdown"})
-          +input({type: "text", value: "дд.мм.гггг", withStaticPicker: true, isDropdown: 'true'})
+    
+          +form-item({title: "Pagination"})
+            +pagination()
 
-        +form-item({title: "Date dropdown"})
-          +input({type: "text", value: "19.08.2019", withDatePicker: "withDatePicker", isDropdown: 'true'})
-        
-        +form-item({title: "Filter Date Dropdown"})
-          +input({type: "text", value: "19.08.2019", withDatePicker: "withDatePicker", isDropdown: 'true'})
-
-        +form-item({title: "Masked Text field"})
-          +input({class: 'input-mask', inputmask: "'alias': 'datetime'", type: 'text', placeholder: 'ДД.ММ.ГГГГ'})
-        //- +form-item({title: "Masked Text field"})
-        //-   +input({class: 'input-mask', withDatePicker: "withDatepicker", inputmask: "'alias': 'datetime'", type: 'text', placeholder: 'ДД.ММ.ГГГГ'})
-    +layout()
-      +form-items
-        +form-item({title: "Checkbox buttons"})
-          +input({type: 'checkbox', mode: 'checkbox', label: 'Можно курить'})
-          +input({type: 'checkbox', mode: 'checkbox', label: 'Можно с питомцами'})
-          +input({type: 'checkbox', mode: 'checkbox', label: 'Можно пригласить гостей (до 10 человек)'})
-
-        +form-item({title: "Radio buttons", horizontal: true})
-          +input({type: 'radio', mode: 'radio', name: 'gender', checked: 'checked', label: 'Мужчина'})
-          +input({type: 'radio', mode: 'radio', name: 'gender', label: 'Женщина'})
-      
-        +form-item({title: "Subscription text field"})
-          +input({type: 'email', placeholder: 'Email', isSubmit: 'true'})
-
-        +form-item({title: "Like button"})
-          +button({mode: 'button', isLike: true, text: '2'})
-          +button({mode: 'button', isLike: true, text: '12', activeLike: 'active'})
-
-        +form-item({title: "Rate Buttons"})
-          +input({mode: 'rating'})
-    +layout()
-      +form-items
-        +form-item({title: "Buttons"})
-          +button({size: 'middle', theme: 'solid',text: "Click me"})
-          +button({size: 'middle', theme: 'solid', tag: "a"})
-          +button({size: 'middle', text: "Click me"})
-          +button({size: 'big', tag: "a"})
-          +button({size: 'big', theme: 'solid', text: "Подключить", isConnect: true, })
-
-  
-        +form-item({title: "Pagination"})
-          +pagination()
-
-        +form-item({title: "Range slider", isRangeSlider: 'true'})
-          +range-slider()
       
       
       

@@ -20,7 +20,7 @@ select:-ms-expand {
 
 .dropdown {
   color: black;
-  display: inline-block;
+  display: flex;
   color: $color-shade-second;
   transition: border-color 0.4s;
   position: relative;
@@ -55,6 +55,8 @@ select:-ms-expand {
     background-color: white;
     visibility: hidden;
     position: absolute;
+    top: 100%;
+    left: 0;
     z-index: 2;
     width: 100%;
     color: $color-shade-second;

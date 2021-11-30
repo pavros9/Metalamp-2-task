@@ -9,6 +9,7 @@ mixin input(options)
     var modeInput = ''
     modeInput += options.withStaticPicker ? ' input_withDatePicker' : ''
     modeInput += options.withDatePicker ? " input_withDate" : ''
+    modeInput += options.focus ? " input_" + options.focus : ''
   if (options.type ==='text' || options.type ==='email' || options.type ==='date')
     .input(class = modeInput )
       input.input__main(
@@ -18,7 +19,7 @@ mixin input(options)
         name = options.name,
         data-inputmask = options.inputmask,
         value = options.value,
-        readonly = options.read
+        readonly = options.read,
         )
       if (options.isSubmit) 
         button.input__button.material-icons-outlined arrow_forward

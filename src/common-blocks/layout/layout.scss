@@ -5,3 +5,17 @@
   justify-content: center;
   flex-wrap: wrap;
 }
+.layout_for-page {
+  max-width: 1440px;
+  margin: auto;
+  position: relative;
+  &::before {
+    position: absolute;
+    content: "";
+    background: no-repeat center/100% url("../../assets/svg/logo.svg");
+    width: 3.43rem;
+    height: 3.43rem;
+    top: 30px;
+    left: 30px;
+  }
+}

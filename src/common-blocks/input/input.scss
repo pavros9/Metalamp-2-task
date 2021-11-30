@@ -6,6 +6,19 @@
   border: 0.07rem solid rgba(31, 32, 65, 0.25);
   border-radius: 0.29rem;
   transition: border-color 0.4s;
+  &_focused {
+    border: 1px solid $color-shade-third;
+    .input__main {
+      &::placeholder {
+        color: $color-shade-second;
+        transition: color 0.4s;
+      }
+      :-moz-input-placeholder {
+        color: $color-shade-second;
+        transition: color 0.4s;
+      }
+    }
+  }
   &_withDate {
     max-width: 10.57rem;
     position: relative;
@@ -57,12 +70,25 @@
     outline: none;
     flex: 1 1 22.86rem;
     line-height: 1.71rem;
+    width: 100%;
+    &::placeholder {
+      color: $color-shade-forth;
+      transition: color 0.4s;
+    }
+    &:-moz-input-placeholder {
+      color: $color-shade-forth;
+      transition: color 0.4s;
+    }
+    &::-ms-input-placeholder {
+      color: $color-shade-forth;
+      transition: color 0.4s;
+    }
+    &:focus::placeholder,
+    &:hover::placeholder {
+      color: $color-shade-second;
+    }
     &_withDatePicker {
       max-width: 148px;
-    }
-    &:focus,
-    &:hover {
-      border-color: $color-shade-second;
     }
   }
   &__text {
@@ -116,13 +142,8 @@
     &:checked + span img {
       display: block;
     }
-    // &:checked + span::before {
-    //   content: "";
-    //   position: absolute;
-    // }
   }
   &__label-checkbox {
-    // background: url("./img/lol.jpg");
     display: flex;
     color: $color-shade-second;
     span {
@@ -146,6 +167,17 @@
       border-color: black;
     }
   }
+
+  &__radio {
+    &:checked + span::after {
+      background: $color-gradient;
+      box-shadow: inset 0 0 0 0.21rem white;
+    }
+    &:checked,
+    &:not(:checked) {
+      opacity: 0;
+    }
+  }
   &__label-radio {
     display: flex;
     & span::after {
@@ -166,42 +198,7 @@
     span {
       order: -1;
     }
-    .input {
-      &__radio {
-        &:checked + span::after {
-          background: $color-gradient;
-          box-shadow: inset 0 0 0 0.21rem white;
-        }
-      }
-    }
   }
-}
-
-// /временно
-
-input[type="radio"]:checked,
-input[type="radio"]:not(:checked) {
-  // display: none;
-  opacity: 0;
-}
-input::-webkit-input-placeholder {
-  color: $color-shade-forth;
-  transition: color 0.4s;
-}
-input:-moz-placeholder {
-  color: $color-shade-forth;
-}
-input:focus::-webkit-input-placeholder {
-  color: $color-shade-second;
-}
-input:focus-moz-placeholder {
-  color: $color-shade-second;
-}
-input:hover::-webkit-input-placeholder {
-  color: $color-shade-second;
-}
-input:hover-moz-placeholder {
-  color: $color-shade-second;
 }
 
 // --rating--
